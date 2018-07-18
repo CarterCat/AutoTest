@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../dist/.idea/dist.iml" filepath="$PROJECT_DIR$/../dist/.idea/dist.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../search_checker/.idea/search_checker.iml" filepath="$PROJECT_DIR$/../search_checker/.idea/search_checker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../traveler/.idea/traveler.iml" filepath="$PROJECT_DIR$/../traveler/.idea/traveler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/untitled.iml" filepath="$PROJECT_DIR$/.idea/untitled.iml" />
+      <module fileurl="file://$USER_HOME$/Documents/auto_test/www/.idea/www.iml" filepath="$USER_HOME$/Documents/auto_test/www/.idea/www.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../search_checker/.idea/矛盾搜索.iml" filepath="$PROJECT_DIR$/../search_checker/.idea/矛盾搜索.iml" />
+    </modules>
+  </component>
+</project>
