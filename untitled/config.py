@@ -18,7 +18,7 @@ def login_test(url,json):
     login_result = send.json()
     auth_token = login_result['auth_token']
 
-    if (state == 200) and (login_result['name'] == '姚思文'):
+    if (state == 200) and (login_result['name'] == ''):
         print("        登录成功")
         return (auth_token)
     else :
@@ -89,15 +89,15 @@ def send_eamil(email_from, email_password, email_to):
     msg.attach(txt)
 
     # 构造附件
-    att = MIMEText(open(u"/Users/Desktop/TestReport/TestReport.html", "rb").read(), "base64", "utf-8")
+    att = MIMEText(open(u"", "rb").read(), "base64", "utf-8")
     att["Content-Type"] = "application/octet-stream"
     att["Content-Disposition"] = "attachment; filename=TestResult.html"
     msg.attach(att)
 
     try:
         smtpObj = smtplib.SMTP()
-        #smtpObj.connect("hwsmtp.exmail.qq.com","465")
-        smtpObj.connect("smtp.163.com","25")
+        
+        smtpObj.connect("","")
         state = smtpObj.login(email_from,email_password)
         if state[0] == 235:
             smtpObj.sendmail(msg["from"],msg["to"],msg.as_string())

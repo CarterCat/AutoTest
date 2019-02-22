@@ -1,6 +1,7 @@
 from selenium import webdriver
 from unittest import TestCase, makeSuite, TextTestRunner
 from time import sleep
+import re
 
 # 设置Chrome启动，headless模式
 chrome_options = webdriver.ChromeOptions()
@@ -13,7 +14,10 @@ url = ['', '']
 
 # 检查是否包含特殊字符
 def check_text(text):
-    return ('<' in text )and('&lt;' in text )and('&gt;' in text )
+    if re.search(r'&.*;',text):
+        return 1
+    else:
+        return 0
 
 # 检查所选链接界面内，所有文章标题和摘要，是否包含"<"
 def check_articles(num, titles, boxes):
@@ -22,7 +26,11 @@ def check_articles(num, titles, boxes):
         box = boxes[i].text
         if (check_text(title) or check_text(box)):
             print('链接：'+ url[num])
-            print(title + box+ '显示错误')
+            print('\033[1;31;47m！！！显示错误！！！\033[0m')
+            print('标题：' + title)
+            print('摘要：' + box)
+            print('\n')
+            break
         elif i < (len(titles)-1):
             continue
         else:
@@ -50,9 +58,6 @@ class run_test(TestCase):
 
 if __name__ == "__main__":
     print("=====AutoTest Start======")
-    # creat_report(suite)
-    # send from, password, send to
-    # send_eamil('', '', '')
     suite = makeSuite(run_test)
     runner = TextTestRunner()
     runner.run(suite)

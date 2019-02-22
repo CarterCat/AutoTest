@@ -12,7 +12,7 @@ def login_test(url,json):
     login_result = send.json()
     auth_token = login_result['auth_token']
 
-    if (state == 200) and (login_result['name'] == '姚思文'):
+    if (state == 200) and (login_result['name'] == ''):
         print("        登录成功")
         return (auth_token)
     else :

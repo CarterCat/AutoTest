@@ -1,14 +1,15 @@
+# from django.utils.http import urlquote, unquote
 from requests import post
 from controller import check_unicrm, cancel_ticket
 import time, unittest
 from urllib.parse import quote
 
 # 测试官网填单的手机号，修改此处后，运行脚本即可
-
+# tel = '18966666665'
 tel = input('请输入测试用手机号：')
 # unicrm
 global null, false
-
+# unicrm_login_url = ''
 # null = 'NULL'
 # false = 'False'
 
@@ -18,6 +19,7 @@ secrect = ''
 
 # www
 creat_plan_url = ''
+# creat_plan_url = ''
 
 headers = {'content-type':'application/x-www-form-urlencoded; charset=UTF-8'}
 
@@ -58,14 +60,7 @@ else:
 
 # if __name__ == "__main__":
 #     print("=====AutoTest Start======")
-#
 #     suite = unittest.makeSuite(run_test)
-#     # unittest.main()
-#     # creat_report(suite)
-#     # send from, password, send to
-#     # send_eamil('', '', '')
 #     runner = unittest.TextTestRunner()
-#
 #     runner.run(suite)
-#
 #     print("=====AutoTest Over======")
