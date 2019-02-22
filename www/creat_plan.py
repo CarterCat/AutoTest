@@ -35,7 +35,7 @@ comment = 'comment=' + quote('测试方案，用完即删')
 unicrm = 'unicrm=1'
 
 # 创建方案，
-data = utm_term + '&' + utm_medium + '&' + utm_campaign + '&' + utm_source + '&' + name + '&' + phone + '&' + destination + '&' + days + '&' + comment + '&' + unicrm
+data = ''
 result = post(url=creat_plan_url, headers=headers, data=data).json()
 time.sleep(5)
 

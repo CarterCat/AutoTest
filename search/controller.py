@@ -61,7 +61,7 @@ class normal():
         return unified_plan_id
 
     def get_plan_schedules(self, unified_plan_id):
-        url = unified_plans_url + str(unified_plan_id) + '/schedules'
+        url = unified_plans_url + str(unified_plan_id) + ''
         schedules = get(url= url, headers= login().headers()).json()
         return schedules
 
@@ -80,9 +80,9 @@ class normal():
         y = True
         for i in range(0, len(unified_plan_ids)):
             # 初始化dist方案
-            get(url=unified_plans_url + str(unified_plan_ids[i]) + '/basic', headers= login().headers())
+            get(url=unified_plans_url + str(unified_plan_ids[i]) + '', headers= login().headers())
             sleep(1)
-            unified_plan_schedules = get(url=unified_plans_url + str(unified_plan_ids[i]) + '/schedules', headers= login().headers()).json()
+            unified_plan_schedules = get(url=unified_plans_url + str(unified_plan_ids[i]) + '', headers= login().headers()).json()
 
             for n in range(0, len(unified_plan_schedules['schedules'])):
                 for m in range(0, len(unified_plan_schedules['schedules'][n]['places'])):
@@ -135,9 +135,9 @@ class get_schedules():
 
     def __init__(self, unified_plans_id):
         self.id = unified_plans_id
-        self.url = unified_plans_url + str(unified_plans_id) + '/schedules'
+        self.url = unified_plans_url + str(unified_plans_id) + ''
         self.audits_url = audits_url + str(unified_plans_id)
-        self.basic_url = basic_url + str(unified_plans_id) + '/basic?utm_campaign=2414'
+        self.basic_url = basic_url + str(unified_plans_id) + ''
 
     def places_ids(self):
 

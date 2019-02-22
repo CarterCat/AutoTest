@@ -26,7 +26,7 @@ desired_caps['deviceName'] = 'Android Emulator'
 desired_caps['appPackage'] = 'com.android.calculator2'
 desired_caps['appActivity'] = '.Calculator'
 
-driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
+driver = webdriver.Remote('', desired_caps)
 
 driver.find_element_by_name('1').click()
 driver.quit()

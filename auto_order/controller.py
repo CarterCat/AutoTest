@@ -279,12 +279,12 @@ def jump_next_states(deal_id):
 
     # 销售联系->需求沟通
     if current_stage == 'contact_customer':
-        put(url = '' + str(deal_id), json = {"contact_status":"sales_contacted"}, headers = headers)
+        put(url = '' + str(deal_id), json = {""}, headers = headers)
         check_jump_states(deal_id = deal_id, from_stage = current_stage)
 
     # 需求沟通->方案准备
     elif current_stage == 'discover_needs':
-        put(url = '' + str(deal_id), json = {"travel_destination":"日本","countries":["日本"],"travel_departure_city":"","travel_days":10,"budget":"1000","personnel_structure":"独自出行"}, headers = headers)
+        put(url = '' + str(deal_id), json = {""}, headers = headers)
         check_jump_states(deal_id = deal_id, from_stage = current_stage)
 
     # 方案准备->方案讨论
@@ -293,7 +293,7 @@ def jump_next_states(deal_id):
         Dist_Authorization = login_dist(email = Dist_email, password = Dist_password)
         dist_headers = {'Authorization': Dist_Authorization}
         # print(dist_headers)
-        post(url = '' + Dist_id + '/deal_binding', json = {"deal_id":deal_id}, headers = dist_headers)
+        post(url = '' + Dist_id + '', json = {""}, headers = dist_headers)
         check_jump_states(deal_id=deal_id, from_stage=current_stage)
 
     # 方案讨论->价格讨论
@@ -304,7 +304,6 @@ def jump_next_states(deal_id):
         url = '' + str(deal_id) + ''
         json = {""}
         result = post(url = url, json = json, headers = headers)
-        # json = {"pricing_form":{"id":454,"plan_id":138111,"form_type":"modify_with_check","plan_mode_type":"default","budget":1000,"budget_include_items":[],"flight_info":"测试机票信息","status":"unsubmitted","created_at":"2019-01-09T10:47:36.000+08:00","updated_at":"2019-01-09T10:49:35.479+08:00"}}
 
         # 确认核价表单、完成核价
         confirm_price_check(deal_id = deal_id)
